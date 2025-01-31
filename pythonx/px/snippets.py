@@ -114,8 +114,7 @@ def _make_jumper_jump(snip, direction):
 
     jumper['enabled'] = False
 
-    vim.command('call feedkeys("\<S-C-A-D-kEqual>' + 
-        direction.title() + '")')
-
+    jump_key_binding = vim.vars["UltiSnipsJump" + direction.title()[:-1] + "Trigger"]
+    vim.command('call feedkeys("\\' + jump_key_binding + '")')
 
     return True
